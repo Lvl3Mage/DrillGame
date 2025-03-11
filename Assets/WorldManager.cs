@@ -66,11 +66,6 @@ public class WorldManager : MonoBehaviour
     }
     float WorldValue(Vector3 position)
     {
-        int maxExtent = Mathf.Max(Mathf.Max(Mathf.Abs((int)position.x), Mathf.Abs((int)position.y)), Mathf.Abs((int)position.z));
-        if(maxExtent > chunkSize*chunkCount/2f)
-        {
-            return 0;
-        }
         return Mathf.Clamp01(Mathf.PerlinNoise(position.x/10f, position.z/10f) - position.y/10f+1);
     }
 }
